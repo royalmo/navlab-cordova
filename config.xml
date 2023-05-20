@@ -8,4 +8,10 @@
     <content src="index.html" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
+
+    <!-- Add Content Security Policy -->
+    <platform name="android">
+        <allow-navigation href="https://navlab.ericroy.net/*" />
+        <allow-intent href="https://navlab.ericroy.net/*" />
+    </platform>
 </widget>
