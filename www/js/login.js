@@ -1,11 +1,9 @@
 function login() {
-  alert("TESTING TESTING TESTING 2")
     // Perform login and retrieve user credentials
 
     // Make API call to get server information
     fetch('https://navlab.ericroy.net/api/servers')
       .then(function(response) {
-        alert("TESTING TESTING TESTING 3")
         if (response.status === 401) {
           // User is unauthorized, show login page
           showLoginPage();
@@ -27,7 +25,6 @@ function login() {
 
 
 function showLoginPage() {
-  alert("TESTING TESTING TESTING")
     var body = document.getElementsByTagName('body')[0];
   
     var loginHtml = `
@@ -46,12 +43,15 @@ function showLoginPage() {
                 <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
                 <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required=""></input>
               </div>
+              <div>
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+              </div>
             </form>
           </main>
         </div>
       </div>
     `;
-    body.innerHTML = loginHtml;
+    body.innerHTML += loginHtml;
 
     // Add event listener for the login form submit
     var loginForm = document.querySelector('form');
@@ -59,28 +59,29 @@ function showLoginPage() {
       event.preventDefault(); // Prevent form submission
       var email = document.getElementById('email').value;
       var password = document.getElementById('password').value;
-  
+      alert(email + " " + password)
+      var authString = btoa(`${email}:${password}`);
+      
       // Make API call to validate user credentials
-      fetch('https://navlab.ericroy.net/login', {
+      fetch('https://navlab.ericroy.net/api/servers', {
         method: 'POST',
-        body: JSON.stringify({ email: email, password: password }),
-        headers: { 'Content-Type': 'application/json' }
-      })
-        .then(function(response) {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Basic ${authString}`}
+        }).then(function(response) {
           if (response.status === 401) {
+            alert("HELLO HELLO2")
             // Invalid credentials, show error message or handle appropriately
             console.log('Invalid credentials');
-          } else if (response.status === 200) {
-            // User is authorized, retrieve contents and load dashboard
-            response.json().then(function(data) {
-              dashboard(data);
-            });
           } else {
-            // Handle other response statuses
-            console.log('Unexpected response:', response);
+            alert("HELLO HELLO3")
+            response.json().then(function(data) {
+              dashboard(data[0]);
+            });
           }
         })
         .catch(function(error) {
+          alert(error)
           // Handle network or API call errors
           console.error('API call failed:', error);
         });

@@ -1,4 +1,5 @@
 function dashboard(data) {
+  alert("HELLO THERE")
     document.querySelector('main').innerHTML = '';
 
     var header = document.querySelector('header');
