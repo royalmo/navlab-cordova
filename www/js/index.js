@@ -34,8 +34,8 @@ function login() {
 
 
 function showLoginPage() {
-    var body = document.getElementsByTagName('body')[0];
-  
+    var main = document.querySelector('main');
+    main.style.display = 'block';
     var loginHtml = `
       <div class="bg-transparent flex flex-col items-center justify-center px-6 py-8">
         <div class="w-full bg-white border-2 border-black rounded-lg shadow {% block width %}{% endblock %} xl:p-0">
@@ -60,7 +60,7 @@ function showLoginPage() {
         </div>
       </div>
     `;
-    body.innerHTML += loginHtml;
+    main.innerHTML += loginHtml;
 
     // Add event listener for the login form submit
     var loginForm = document.querySelector('form');
@@ -95,6 +95,10 @@ function showLoginPage() {
     });
   }
 
+function onError() {
+    this.onerror = null;
+    this.parentNode.children[0].srcset = this.parentNode.children[1].srcset = this.src;
+}
 
   function dashboard(data) {
       document.querySelector('main').innerHTML = '';
@@ -152,15 +156,8 @@ function showLoginPage() {
           <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-1.5">New service</button>
         </a>
       </div>
-      <script>
-        function onError() {
-          this.onerror = null;
-          this.parentNode.children[0].srcset = this.parentNode.children[1].srcset = this.src;
-        }
-      </script>
       <script class="text-green-600" src="index_files/server_toggle.js"></script>`
   ;
-  
   
       var cardList = document.createElement('div');
       cardList.id = 'card-list';
