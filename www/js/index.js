@@ -110,7 +110,7 @@ function onError() {
       <nav class="bg-white border-gray-200 w-full">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a href="https://navlab.ericroy.net/" class="flex items-center">
-            <img src="index_files/navlab_logo.svg" class="h-12 mr-3" alt="NavLab Logo">
+            <img src="./img/navlab_logo.svg" class="h-12 mr-3" alt="NavLab Logo">
           </a>
           <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-default" aria-expanded="false">
             <span class="sr-only">Open main menu</span>
