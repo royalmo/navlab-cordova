@@ -113,6 +113,15 @@
     .disabled-input-gray input[disabled] {
         @apply bg-gray-300 cursor-not-allowed;
     }
+
+    @keyframes spinning {
+        from {
+            transform:rotate(0deg);
+        }
+        to {
+            transform:rotate(360deg);
+        }
+    }
 }
 
 

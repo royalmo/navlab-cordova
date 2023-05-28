@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="net.ericroy.navlab" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>NavLab</name>
-    <description>Sample Apache Cordova App</description>
-    <author email="dev@cordova.apache.org" href="https://cordova.apache.org">
-        Apache Cordova Team
+    <description>NavLab Mobile Application</description>
+    <author email="eric@ericroy.net" href="https://ericroy.net">
+        Joel Santana, Isaac Iglesias, Eric Roy
     </author>
     <content src="index.html" />
     <allow-intent href="http://*/*" />
@@ -13,5 +13,7 @@
     <platform name="android">
         <allow-navigation href="https://navlab.ericroy.net/*" />
         <allow-intent href="https://navlab.ericroy.net/*" />
+
+        <resource-file src="google-services.json" target="app/google-services.json" />
     </platform>
 </widget>
