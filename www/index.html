@@ -2,13 +2,21 @@
 <html class="min-h-full relative">
     <head class="mb-20 font-mono">
         <meta charset="utf-8">
+        <script src="cordova.js"></script>
+        <script>const host="https://navlab.ericroy.net"</script>
+
         <script src="./js/index.js"></script>
+        <script src="./js/login.js"></script>
+        <script src="./js/dashboard.js"></script>
+        <script src="./js/navigation.js"></script>
         
-	    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://example.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://example.com"/>
+	    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline' *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *"/>
 
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
+
+        <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="./css/main.css">
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet">
@@ -18,9 +26,60 @@
         <title>NavLab</title>
     </head>
     <body>
-        <header style="display:none;"></header>
-        <main style="display:none;"></main>
-        <footer style="display:none;"></footer>
+        <header style="display:none;" class="bg-white">
+            <nav class="bg-white border-gray-200 w-full">
+              <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                <a href="/" class="flex items-center">
+                    <img src="./img/navlab_logo.svg" class="h-12 mr-3" alt="NavLab Logo" />
+                </a>
+                <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-default" aria-expanded="false">
+                  <span class="sr-only">Open main menu</span>
+                  <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+                </button>
+                <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                  <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
+                    <li>
+                      <a href="javascript:navbar_clicked(0)" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0">Dashboard</a>
+                    </li>
+                    <li>
+                      <a href="javascript:navbar_clicked(1)" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Monitoring</a>
+                    </li>
+                    <li>
+                      <a href="javascript:navbar_clicked(2)" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Profile</a>
+                    </li>
+                    <li class="admin-only">
+                      <a href="javascript:navbar_clicked(3)" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Users</a>
+                    </li>
+                    <li>
+                      <a href="javascript:navbar_clicked(4)" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Log Out</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+        </header>
+
+        <main></main>
+
+        <footer style="display:none;">
+            <span>
+                <span>
+                    &copy; 2023 <a href="javascript:void(0)">iTIC</a>. All Rights Reserved.
+                </span>
+                <ul>
+                    <li>
+                        <a href="javascript:void(0)">About</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">Contact</a>
+                    </li>
+                </ul>
+              </span>
+        </footer>
+
         <div class="-z-50 fixed top-0 w-full h-full overflow-hidden bg-blue-200">
 
             <div class="-z-10 fixed bottom-0 w-full h-[6%] bg-[#f6f6f6]"></div>

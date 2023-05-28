@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "409069629642",
+    "project_id": "navlab-36618",
+    "storage_bucket": "navlab-36618.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:409069629642:android:694c6940dbc96a55354433",
+        "android_client_info": {
+          "package_name": "net.ericroy.navlab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "409069629642-0uu97mgd98241cu3eusa2s6mt6mm97g6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYu9vQ-1k4dJn1Vy2B6EjLtUYKMrldoPs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "409069629642-0uu97mgd98241cu3eusa2s6mt6mm97g6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

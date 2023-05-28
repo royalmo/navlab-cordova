@@ -1,3 +1,4 @@
+// TODO MAKE IT STOP WHEN PAGE UNLOADS
 setInterval(async function () {
     const response = await fetch(`${host}/api/servers`, {
         method: 'GET',

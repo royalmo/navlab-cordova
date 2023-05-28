@@ -14,17 +14,18 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "cordova-android": "^11.0.0",
+    "cordova-browser": "^6.0.0",
     "cordova-plugin-firebase-messaging": "^7.0.4",
     "cordova-support-android-plugin": "^2.0.4",
     "tailwindcss": "^3.1.8"
   },
   "cordova": {
     "platforms": [
-      "android"
+      "android",
+      "browser"
     ],
     "plugins": {
-      "cordova-plugin-firebase-messaging": {
-      }
+      "cordova-plugin-firebase-messaging": {}
     }
   }
 }
