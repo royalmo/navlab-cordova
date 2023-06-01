@@ -17,6 +17,7 @@ function navbar_clicked(n) {
 
     switch (n) {
         case 0:
+            clearIntervals();
             loadDashboard();
             break;
 
@@ -27,7 +28,11 @@ function navbar_clicked(n) {
             break;
 
         case 4:
+            clearIntervals();
+            // Logout
+            unregister_token(auth_header);
             deleteCredentials();
+
             showLoginPage();
             break;
     

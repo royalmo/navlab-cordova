@@ -1,5 +1,4 @@
-// TODO MAKE IT STOP WHEN PAGE UNLOADS
-setInterval(async function () {
+intervals.push(setInterval(async function () {
     const response = await fetch(`${host}/api/servers`, {
         method: 'GET',
         headers: {
@@ -20,4 +19,4 @@ setInterval(async function () {
         
         elm.classList.toggle('active', current_server['status']);
     }
-}, 8000)
+}, 8000));

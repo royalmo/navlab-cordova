@@ -1,6 +1,7 @@
 // Save credentials to local storage
 function saveCredentials(username, password) {
   localStorage.setItem("credentials", JSON.stringify({ username: username, password: password }));
+  auth_header = `Basic ${btoa(`${username}:${password}`)}`;
 }
 
 // Retrieve credentials from local storage
@@ -11,6 +12,36 @@ function getCredentials() {
 // Logout
 function deleteCredentials() {
   localStorage.removeItem("credentials");
+}
+
+function register_token() {
+  cordova.plugins.firebase.messaging.getToken()
+  .then(token => {
+    fetch(host + '/api/register_token', {
+      method: 'POST',
+      headers: {
+        'Authorization': auth_header,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ 'token': token })
+    });
+  })
+  .catch(() => {/* Do nothing */})
+}
+
+function unregister_token() {
+  cordova.plugins.firebase.messaging.getToken()
+  .then(token => {
+    fetch(host + '/api/unregister_token', {
+      method: 'POST',
+      headers: {
+        'Authorization': auth_header,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ 'token': token })
+    });
+  })
+  .catch(() => {/* Do nothing */})
 }
 
 function showLoginPage() {
@@ -71,7 +102,7 @@ function showLoginPage() {
       headers: {
         'Authorization': `Basic ${authString}`
       }
-    }).then(async function (response) {
+    }).then(function (response) {
       if (response.status === 401) {
         document.querySelector('button[type="submit"] i').style.display="none";
         document.querySelector('button[type="submit"]').disabled="";
@@ -87,15 +118,7 @@ function showLoginPage() {
           toggleAdminStuff(data['admin']);
         });
 
-        var token = await cordova.plugins.firebase.messaging.getToken();
-        fetch(host + '/api/register_token', {
-          method: 'POST',
-          headers: {
-            'Authorization': `Basic ${authString}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ 'token': token })
-        });
+        register_token();
       }
     })
     .catch(function (error) {

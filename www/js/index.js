@@ -45,3 +45,10 @@ function sanitizeHTML(str) {
   tempElement.textContent = str;
   return tempElement.innerHTML;
 }
+
+function clearIntervals() {
+  for(let i = 0; i<intervals.length; i++)
+    clearInterval(intervals[i]);
+
+  intervals = [];
+}
