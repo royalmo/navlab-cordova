@@ -22,9 +22,10 @@ function navbar_clicked(n) {
             break;
 
         case 1:
-	    clearIntervals();
+	        clearIntervals();
             loadMonitoring();
             break;
+
         case 2:
         case 3:
             alert ('not implemented');
