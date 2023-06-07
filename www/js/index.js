@@ -23,7 +23,19 @@ function toggleAdminStuff(val) {
 }
 
 function showNetworkErrorPage() {
-  // TODO 
+  var header = document.querySelector('header');
+  header.style.display = 'none';
+
+  var footer = document.querySelector('footer');
+  footer.style.display = 'none';
+  
+  document.querySelector('main').innerHTML = `
+  <div class="bg-white mt-4 bg-opacity-90 max-w-[1250px] mx-4 border-black border rounded p-4 flex flex-wrap items-center justify-between">
+      <h1 class="text-blue-900 font-bold mr-4 text-2xl text-center leading-relaxed">
+        Couldn't load! Check your internet connection and <a class="underline" href="javascript:onDeviceReady()">try again</a>.
+      </h1>
+  </div>`
+;
 }
 
 function showSpinnerBig() {
