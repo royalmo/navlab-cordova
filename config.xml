@@ -9,11 +9,12 @@
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
 
+    <icon src="www/img/anchor.png" />
+
     <!-- Add Content Security Policy -->
     <platform name="android">
         <allow-navigation href="https://navlab.ericroy.net/*" />
         <allow-intent href="https://navlab.ericroy.net/*" />
-        <icon src="./www/img/anchor.png" />
         <resource-file src="google-services.json" target="app/google-services.json" />
     </platform>
 </widget>
