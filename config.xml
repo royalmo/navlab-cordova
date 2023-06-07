@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="net.ericroy.navlab" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="net.ericroy.navlab" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>NavLab</name>
     <description>NavLab Mobile Application</description>
     <author email="eric@ericroy.net" href="https://ericroy.net">
@@ -15,6 +15,17 @@
     <platform name="android">
         <allow-navigation href="https://navlab.ericroy.net/*" />
         <allow-intent href="https://navlab.ericroy.net/*" />
+
+        <resource-file src="www/img/anchor_notification.png" target="app/src/main/res/drawable-xhdpi/anchor.png" />
+        <resource-file src="www/img/anchor_notification.png" target="app/src/main/res/drawable-hdpi/anchor.png" />
+        <resource-file src="www/img/anchor_notification.png" target="app/src/main/res/drawable-mdpi/anchor.png" />
+        <resource-file src="www/img/anchor_notification.png" target="app/src/main/res/drawable-ldpi/anchor.png" />
+
+        <config-file parent="/manifest/application" target="AndroidManifest.xml">
+            <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/anchor" />
+        </config-file>
+
+        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="www/img/anchor_splash.png" />
         <resource-file src="google-services.json" target="app/google-services.json" />
     </platform>
 </widget>
