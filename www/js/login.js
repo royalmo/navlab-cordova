@@ -78,6 +78,7 @@ function showLoginPage() {
                 </button>
               </div>
             </form>
+            <h3 class="text-red-800 text-center underline leading-tight tracking-tight"><a href="javascript:showMonitoring(demodata);toggleAdminStuff(false);">Offline demo</a><h3>
           </main>
         </div>
       </div>
